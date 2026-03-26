@@ -1,147 +1,93 @@
-# Health Data Analysis Project
+# Lifestyle Risk Analytics
 
-A comprehensive analysis of health datasets examining the impact of lifestyle factors on diabetes, heart disease, and sleep health outcomes.
+Multi-dataset health analytics project that studies how lifestyle factors (physical activity, BMI, stress, and age) relate to diabetes, heart disease, and sleep outcomes.
 
-## 📊 Project Overview
+## Why this project matters
 
-This project analyzes three health datasets to understand how various lifestyle factors influence health outcomes. The analysis focuses on identifying key relationships between physical activity, BMI, stress levels, and other health indicators across different medical conditions.
+Healthcare data is often analyzed in silos. This project combines three complementary datasets to identify patterns that appear across conditions, not just inside one disease domain. The result is a lightweight analytics workflow that can support risk-awareness dashboards, prevention campaigns, or early-stage product prototyping in health-tech.
 
-## 🎯 Key Insights Discovered
+## What this repository does
 
-### Diabetes Analysis
-- **BMI Impact**: Higher BMI is strongly associated with diabetes progression
-- **Physical Activity**: Regular physical activity decreases with diabetes progression
-- **Prevalence**: Significant diabetes prevalence in the dataset population
+- Cleans and standardizes three raw health datasets.
+- Produces focused analyses for diabetes, heart disease, and sleep health.
+- Generates cross-dataset insights around physical activity as a shared protective factor.
+- Saves publication-ready charts (`.png`) for reporting and portfolio use.
 
-### Heart Disease Analysis
-- **Cholesterol Levels**: Higher cholesterol levels are associated with heart disease presence
-- **Age Factor**: Heart disease risk increases significantly with age
-- **Blood Pressure**: Elevated blood pressure correlates with heart disease risk
+## Key insights
 
-### Sleep Health Analysis
-- **Stress Correlation**: Strong negative correlation between stress levels and sleep duration
-- **BMI Categories**: Different BMI categories show distinct sleep duration patterns
-- **Physical Activity**: Positive correlation between physical activity and sleep quality
+- Higher BMI is associated with more advanced diabetes categories.
+- Heart disease prevalence increases with age and aligns with higher cholesterol/BP.
+- Stress level is negatively correlated with sleep duration.
+- Physical activity shows beneficial signals in both diabetes and sleep contexts.
 
-### Combined Analysis
-- **Cross-Dataset Insights**: Physical activity emerges as a protective factor across multiple health conditions
-- **Holistic Health View**: Demonstrates how lifestyle factors impact various aspects of health simultaneously
+## Repository structure
 
-## 📁 Project Structure
-
-```
-├── raw_data/                          # Original datasets
-│   ├── diabetes_012_health_indicators_BRFSS2015.csv
-│   ├── Heart_Disease_Prediction.csv
-│   └── Sleep_health_and_lifestyle_dataset.csv
-├── cleaned_data/                      # Processed datasets
-│   ├── clean_diabetes.csv
-│   ├── clean_heart.csv
-│   └── clean_sleep.csv
-├── clean_dataset.py                   # Data cleaning script
-├── diabetes_analysis.py              # Diabetes-specific analysis
-├── heart_analysis.py                 # Heart disease analysis
-├── sleep_analysis.py                 # Sleep health analysis
-├── combine_analysis.py               # Cross-dataset analysis
-└── *.png                            # Generated visualizations
+```text
+.
+├── raw_data/                              # Source datasets
+├── cleaned_data/                          # Outputs from cleaning script
+├── clean_dataset.py                       # Cleaning pipeline
+├── diabetes_analysis.py                   # Diabetes-focused analysis
+├── heart_analysis.py                      # Heart disease-focused analysis
+├── sleep_analysis.py                      # Sleep-focused analysis
+├── combine_analysis.py                    # Cross-dataset analysis
+├── requirements.txt                       # Python dependencies
+└── *.png                                  # Generated visual outputs
 ```
 
-## 🚀 Getting Started
+## Quick start
 
-### Prerequisites
-- Python 3.7+
-- pandas
-- matplotlib
-- numpy
+### 1) Setup
 
-### Installation
-1. Clone the repository:
 ```bash
-git clone <your-repo-url>
-cd Data1002-Project-1-code
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
 ```
 
-2. Install required packages:
+### 2) Run data cleaning
+
 ```bash
-pip install pandas matplotlib numpy
+python3 clean_dataset.py
 ```
 
-### Running the Analysis
+### 3) Run analyses
 
-1. **Clean the datasets**:
 ```bash
-python clean_dataset.py
+python3 diabetes_analysis.py
+python3 heart_analysis.py
+python3 sleep_analysis.py
+python3 combine_analysis.py
 ```
 
-2. **Run individual analyses**:
-```bash
-python diabetes_analysis.py
-python heart_analysis.py
-python sleep_analysis.py
-```
+## Outputs
 
-3. **Run combined analysis**:
-```bash
-python combine_analysis.py
-```
+- `diabetes_health_insights.png`
+- `heart_disease_insights.png`
+- `sleep_health_insights.png`
+- `combined_physical_activity_impact.png`
 
-## 📈 Generated Visualizations
+## Data sources
 
-The analysis produces several key visualizations:
+- BRFSS 2015 diabetes indicators dataset
+- Heart disease prediction dataset
+- Sleep health and lifestyle dataset
 
-- `diabetes_health_insights.png` - BMI distribution by diabetes stage
-- `heart_disease_insights.png` - Cholesterol, age, and blood pressure analysis
-- `sleep_health_insights.png` - Stress vs sleep duration and BMI impact
-- `combined_physical_activity_impact.png` - Cross-dataset physical activity analysis
+See `raw_data/` for files included in this project snapshot.
 
-## 📊 Datasets Used
+## Suggested GitHub repository metadata
 
-### 1. Diabetes Dataset (BRFSS 2015)
-- **Source**: Behavioral Risk Factor Surveillance System 2015
-- **Records**: ~253,000 individuals
-- **Key Variables**: BMI, physical activity, diabetes status, demographics
+### Better repository name ideas
 
-### 2. Heart Disease Dataset
-- **Records**: ~270 individuals
-- **Key Variables**: Age, cholesterol, blood pressure, heart disease status
+- `lifestyle-risk-analytics`
+- `multi-dataset-health-analytics`
+- `health-lifestyle-insights`
 
-### 3. Sleep Health Dataset
-- **Records**: ~370 individuals
-- **Key Variables**: Sleep duration, stress levels, physical activity, BMI categories
+### Suggested GitHub topics (tags)
 
-## 🔍 Analysis Methods
+`python`, `data-analysis`, `healthcare-analytics`, `pandas`, `matplotlib`, `public-health`, `data-visualization`, `risk-analysis`, `portfolio-project`
 
-- **Statistical Analysis**: Correlation analysis, group comparisons, summary statistics
-- **Data Visualization**: Box plots, scatter plots, bar charts
-- **Data Cleaning**: Handling missing values, removing duplicates, standardizing categories
+## Notes
 
-## 📋 Key Findings Summary
-
-1. **Physical Activity** is consistently associated with better health outcomes across all three conditions
-2. **BMI** shows strong relationships with diabetes progression and sleep quality
-3. **Age** is a significant risk factor for heart disease
-4. **Stress levels** have a strong negative impact on sleep duration
-5. **Lifestyle factors** demonstrate interconnected effects on multiple health outcomes
-
-## 🛠️ Technical Details
-
-- **Data Processing**: Automated cleaning pipeline with duplicate removal and missing value handling
-- **Visualization**: High-resolution plots (300 DPI) with professional formatting
-- **Statistical Analysis**: Correlation coefficients, group means, and distribution analysis
-- **Code Structure**: Modular design with separate scripts for each analysis component
-
-## 📝 Future Enhancements
-
-- Machine learning models for health outcome prediction
-- Additional statistical tests and confidence intervals
-- Interactive visualizations
-- Expanded dataset integration
-- Longitudinal analysis capabilities
-
-## 📄 License
-
-This project is for educational use. Please ensure proper attribution when using the datasets or analysis methods.
-
----
-
-**Note**: This analysis is for educational and research purposes. Always consult healthcare professionals for medical advice.
+- This project provides observational analysis, not medical diagnosis.
+- Use outputs for educational/research and portfolio purposes.
