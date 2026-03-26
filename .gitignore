@@ -8,3 +8,4 @@ __pycache__/
 .mplconfig/
 .venv/
 venv/
+.vscode/
